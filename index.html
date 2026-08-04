@@ -574,10 +574,11 @@ POR:
         transform: perspective(1000px) rotateY(-5deg);
       }
 
-      .foto-casal-principal {
+.foto-casal-principal {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top center;
         filter: sepia(0.1) contrast(1.05) brightness(1.05);
       }
 
@@ -960,14 +961,21 @@ POR:
         }
       }
 
-      .foto-noivo,
+   .foto-noivo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center -13%;
+        transition: transform 0.8s ease;
+      }
+
       .foto-noiva {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center -2%;
         transition: transform 0.8s ease;
       }
-
       .container-foto-noivo:hover .foto-noivo,
       .container-foto-noiva:hover .foto-noiva {
         transform: scale(1.05);
@@ -1342,8 +1350,9 @@ POR:
 .galeria-img-elegante {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* Mostra a foto completa sem zoom */
-  background-color: var(--cor-fundo-claro);  /* Fundo para preencher espaços */
+  object-fit: cover;
+  object-position: top center;
+  background-color: var(--cor-fundo-claro);
   transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -3092,7 +3101,7 @@ body:has(#capa:not(.oculto)) #botaoMusica {
     </div>
     
     <!-- SELO -->
-    <div id="waxSeal" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 250px !important; height: 250px !important; z-index: 30 !important; cursor: pointer !important;">
+    <div id="waxSeal" style="position: absolute !important; top: 43% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: 290px !important; height: 290px !important; z-index: 30 !important; cursor: pointer !important;">
       <img src="selo.png" alt="Selo" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));" />
     </div>
     
@@ -3133,7 +3142,7 @@ body:has(#capa:not(.oculto)) #botaoMusica {
           <div class="container-foto-musica">
             <div class="moldura-principal">
               <img
-                src="Foto4.jpeg"
+                src="Foto1.jpeg"
                 alt="Shelsea e Marcos"
                 class="foto-casal-principal"
               />
@@ -3184,7 +3193,7 @@ body:has(#capa:not(.oculto)) #botaoMusica {
               <div class="linha-pais"></div>
               <p class="pais-preto">
                 <strong>Filho de:</strong><br />
-               Nicolau Pedro Candja Da Barca<br />
+               Nicolau Pedro Candja Xavier Da Barca<br />
   Alexandra Maria Rosinha Meque
 </p>
             </div>
@@ -3294,7 +3303,7 @@ body:has(#capa:not(.oculto)) #botaoMusica {
         <div class="info-evento-elegante">
           <div class="hora-evento-elegante">12h00</div>
           <div class="titulo-evento-elegante">Casamento Religioso</div>
-          <div class="local-evento-elegante">Catedral da Beira</div>
+          <div class="local-evento-elegante">Sé-Catedral da Beira</div>
           <button class="btn-mapa-elegante" onclick="window.open('https://maps.app.goo.gl/mpH1ct7VKM2MimpE7?g_st=ic')">
             <i class="fas fa-map-marker-alt"></i> Ver no mapa
           </button>
@@ -3416,6 +3425,30 @@ body:has(#capa:not(.oculto)) #botaoMusica {
       <i class="fas fa-search-plus"></i>
     </div>
   </div>
+            <div class="galeria-item-elegante" onclick="abrirModal(4)" style="--item-index: 4">
+    <img src="Foto7.jpeg" alt="Shelsea e Marcos" class="galeria-img-elegante" />
+    <div class="galeria-overlay">
+      <i class="fas fa-search-plus"></i>
+    </div>
+  </div>
+  <div class="galeria-item-elegante" onclick="abrirModal(5)" style="--item-index: 5">
+    <img src="Foto8.jpeg" alt="Shelsea e Marcos" class="galeria-img-elegante" />
+    <div class="galeria-overlay">
+      <i class="fas fa-search-plus"></i>
+    </div>
+  </div>
+  <div class="galeria-item-elegante" onclick="abrirModal(6)" style="--item-index: 6">
+    <img src="Foto3.jpeg" alt="Shelsea e Marcos" class="galeria-img-elegante" />
+    <div class="galeria-overlay">
+      <i class="fas fa-search-plus"></i>
+    </div>
+  </div>
+  <div class="galeria-item-elegante" onclick="abrirModal(7)" style="--item-index: 7">
+    <img src="Foto9.jpeg" alt="Shelsea e Marcos" class="galeria-img-elegante" />
+    <div class="galeria-overlay">
+      <i class="fas fa-search-plus"></i>
+    </div>
+  </div>
         </div>
       </section>
 
@@ -3463,88 +3496,7 @@ body:has(#capa:not(.oculto)) #botaoMusica {
         </button>
       </div>
 </section>
-      <!-- MENSAGENS - SCROLL 10 (COM SISTEMA DE ABAS) -->
-      <section id="mensagens" class="secao">
-        <div class="conteudo-secao">
-          <h2>Mensagens Especiais</h2>
-          <p
-            style="
-              font-size: 1.3rem;
-              color: var(--cinza-medio);
-              margin-bottom: 30px;
-            "
-          >
-            Deixe uma mensagem especial para os noivos que será exibida aqui.
-          </p>
-
-          <div class="abas-mensagens-container">
-            <div class="abas-header">
-              <div class="aba ativa" onclick="mudarAba('minhaMensagem')">
-                Minha Mensagem
-              </div>
-              <div class="aba" onclick="mudarAba('outrasMensagens')">
-                Outras Mensagens
-              </div>
-            </div>
-
-            <div class="aba-conteudo ativa" id="minhaMensagem">
-              <div class="form-mensagem-elegante">
-                <div class="form-grid">
-                  <div class="input-group">
-                    <label for="nomeMensagem">Seu nome:</label>
-                    <input
-                      type="text"
-                      id="nomeMensagem"
-                      placeholder="Digite seu nome"
-                    />
-                  </div>
-                  <div class="input-group">
-                    <label for="relacaoMensagem">Sua relação:</label>
-                    <select id="relacaoMensagem">
-                      <option value="">Selecione uma opção</option>
-                      <option value="Família">Família</option>
-                      <option value="Amigo(a)">Amigo(a)</option>
-                      <option value="Colega de trabalho">
-                        Colega de trabalho
-                      </option>
-                      <option value="Padrinho/Madrinha">
-                        Padrinho/Madrinha
-                      </option>
-                      <option value="Convidado(a) especial">
-                        Convidado(a) especial
-                      </option>
-                      <option value="Outro">Outro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <textarea
-                  id="textoMensagem"
-                  placeholder="Escreva sua mensagem aqui..."
-                ></textarea>
-                <button class="btn-enviar-elegante" id="enviarMensagem">
-                  Enviar Mensagem
-                </button>
-              </div>
-
-              <!-- ÚLTIMAS MENSAGENS (SUA + 2 OUTRAS) -->
-              <div
-                id="ultimasMensagensContainer"
-                class="ultimas-mensagens-container"
-              >
-                <!-- As 3 últimas mensagens aparecerão aqui -->
-              </div>
-            </div>
-
-            <div class="aba-conteudo" id="outrasMensagens">
-              <div id="mensagensContainer" class="mensagens-container">
-                <!-- Todas as outras mensagens aparecerão aqui -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    
       <!-- PRESENTES - SCROLL 11 -->
 <section id="presentes" class="secao">
   <div class="conteudo-secao">
@@ -3632,8 +3584,8 @@ body:has(#capa:not(.oculto)) #botaoMusica {
 
         <!-- CARD 5: O Lar Moderno -->
         <div style="background: #f9f6f2; border-radius: 16px; padding: 25px 20px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.06); border: 1px solid #e8ddd0;">
-         <img src="larr.png" alt="O Lar Moderno" style="width: 90px; height: auto; margin-bottom: 15px;">
-<h3 style="font-family: 'Playfair Display', serif; color: #000000; font-size: 1.4rem; margin-bottom: 8px;">O Lar Moderno</h3>
+         <img src="larr.png" alt="A lar" style="width: 90px; height: auto; margin-bottom: 15px;">
+<h3 style="font-family: 'Playfair Display', serif; color: #000000; font-size: 1.4rem; margin-bottom: 8px;">A lar</h3>
           <p style="font-size: 0.95rem; color: #555; margin-bottom: 12px;">Loja de artigos para o lar.</p>
 <div style="width: 330px; height: 1px; background: #676767; margin: 0 auto 12px;"></div>
 <p style="font-size: 0.9rem; color: #171717; font-weight: 600; margin-bottom: 18px;">Beira</p>
@@ -3679,6 +3631,88 @@ body:has(#capa:not(.oculto)) #botaoMusica {
     </div>
   </div>
 </section>
+  <!-- MENSAGENS - SCROLL 10 (COM SISTEMA DE ABAS) -->
+      <section id="mensagens" class="secao">
+        <div class="conteudo-secao">
+          <h2>Mensagens Especiais</h2>
+          <p
+            style="
+              font-size: 1.3rem;
+              color: var(--cinza-medio);
+              margin-bottom: 30px;
+            "
+          >
+            Deixe uma mensagem especial para os noivos que será exibida aqui.
+          </p>
+
+          <div class="abas-mensagens-container">
+            <div class="abas-header">
+              <div class="aba ativa" onclick="mudarAba('minhaMensagem')">
+                Minha Mensagem
+              </div>
+              <div class="aba" onclick="mudarAba('outrasMensagens')">
+                Outras Mensagens
+              </div>
+            </div>
+
+            <div class="aba-conteudo ativa" id="minhaMensagem">
+              <div class="form-mensagem-elegante">
+                <div class="form-grid">
+                  <div class="input-group">
+                    <label for="nomeMensagem">Seu nome:</label>
+                    <input
+                      type="text"
+                      id="nomeMensagem"
+                      placeholder="Digite seu nome"
+                    />
+                  </div>
+                  <div class="input-group">
+                    <label for="relacaoMensagem">Sua relação:</label>
+                    <select id="relacaoMensagem">
+                      <option value="">Selecione uma opção</option>
+                      <option value="Família">Família</option>
+                      <option value="Amigo(a)">Amigo(a)</option>
+                      <option value="Colega de trabalho">
+                        Colega de trabalho
+                      </option>
+                      <option value="Padrinho/Madrinha">
+                        Padrinho/Madrinha
+                      </option>
+                      <option value="Convidado(a) especial">
+                        Convidado(a) especial
+                      </option>
+                      <option value="Outro">Outro</option>
+                    </select>
+                  </div>
+                </div>
+
+                <textarea
+                  id="textoMensagem"
+                  placeholder="Escreva sua mensagem aqui..."
+                ></textarea>
+                <button class="btn-enviar-elegante" id="enviarMensagem">
+                  Enviar Mensagem
+                </button>
+              </div>
+
+              <!-- ÚLTIMAS MENSAGENS (SUA + 2 OUTRAS) -->
+              <div
+                id="ultimasMensagensContainer"
+                class="ultimas-mensagens-container"
+              >
+                <!-- As 3 últimas mensagens aparecerão aqui -->
+              </div>
+            </div>
+
+            <div class="aba-conteudo" id="outrasMensagens">
+              <div id="mensagensContainer" class="mensagens-container">
+                <!-- Todas as outras mensagens aparecerão aqui -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- RODAPÉ - MANUAL DO BOM CONVIDADO -->
 <section id="rodape" class="secao" style="width: 100vw; max-width: 100%; margin: 0; padding: 60px 20px; background: #e8dfd0 !important; min-height: 100vh; display: flex; align-items: center; justify-content: center; left: 0; right: 0; position: relative;">
   <div class="conteudo-secao" style="max-width: 900px; width: 100%; margin: 0 auto;">
@@ -4242,6 +4276,8 @@ const imagensGaleria = [
   "Foto1.jpeg",
   "Foto5.jpeg",
   "Foto6.jpeg", "Foto4.jpeg",
+  "Foto7.jpeg", "Foto8.jpeg",
+  "Foto3.jpeg", "Foto9.jpeg",
 ];
 
 function abrirModal(indice) {
@@ -4333,7 +4369,7 @@ document.getElementById("modalGaleria")?.addEventListener("click", function(e) {
       }
 
       // Efeito de digitação no texto romântico
-      function efeitoDigitacao() {
+     function efeitoDigitacao() {
   const texto = document.querySelector(".texto-destaque");
   if (!texto) return;
 
@@ -4341,41 +4377,38 @@ document.getElementById("modalGaleria")?.addEventListener("click", function(e) {
   texto.textContent = "";
 
   let i = 0;
-  const velocidade = 80; // Velocidade da digitação
+  const velocidade = 60; // Velocidade da digitação
 
   function digitar() {
     if (i < textoOriginal.length) {
       texto.textContent += textoOriginal.charAt(i);
       i++;
       setTimeout(digitar, velocidade);
-    } else {
-      // QUANDO O TEXTO TERMINAR, MOSTRAR OS NOIVOS
-      console.log("✅ Texto terminou! Mostrando os noivos...");
-      
-      // Forçar a animação dos noivos
-      setTimeout(() => {
-        const noivo = document.querySelector(".noivo");
-        const coracao = document.querySelector(".coracao-central");
-        const noiva = document.querySelector(".noiva");
-        
-        if (noivo) noivo.classList.add("visivel");
-        
-        setTimeout(() => {
-          if (coracao) coracao.classList.add("visivel");
-        }, 800);
-        
-        setTimeout(() => {
-          if (noiva) noiva.classList.add("visivel");
-        }, 1800);
-        
-      }, 500); // Pequeno delay depois do texto terminar
     }
+  }
+
+  // MOSTRAR OS NOIVOS NUM TEMPO FIXO, independente do texto
+  function mostrarNoivos() {
+    const noivo = document.querySelector(".noivo");
+    const coracao = document.querySelector(".coracao-central");
+    const noiva = document.querySelector(".noiva");
+
+    if (noivo) noivo.classList.add("visivel");
+
+    setTimeout(() => {
+      if (coracao) coracao.classList.add("visivel");
+    }, 800);
+
+    setTimeout(() => {
+      if (noiva) noiva.classList.add("visivel");
+    }, 1800);
   }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setTimeout(digitar, 0);
+        setTimeout(mostrarNoivos, 3000); // Noivos aparecem 3s depois, sem esperar o texto acabar
         observer.unobserve(entry.target);
       }
     });
@@ -4881,7 +4914,7 @@ window.addEventListener("load", function() {
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  const mensagensRef = collection(db, "mensagens-Debora-Ailton");
+  const mensagensRef = collection(db, "mensagens-Shelsea-Marcos");
 
   function criarCard(msg, index) {
     return `
