@@ -4196,7 +4196,7 @@ function iniciarObservadorAgenda() {
         }
 
         // Verificar se é dia seguinte ao casamento (09/08/2026)
-        if (dataHoje === diaSeguinte) {
+        if (agora > dataCasamento) {
           const tituloContador = document.querySelector("#contador h2");
           if (tituloContador) {
             tituloContador.innerHTML = "💍 Finalmente Casados! 💍";
