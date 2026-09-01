@@ -3953,7 +3953,7 @@ musicaFundo.addEventListener("ended", function() {
       // Mensagens de exemplo (2 para começar)
       const mensagensExemplo = [];
 
-      // Sistema de abas para mensagens
+          // Sistema de abas para mensagens
       function mudarAba(idAba) {
         // Remover classe ativa de todas as abas
         document.querySelectorAll(".aba").forEach((aba) => {
@@ -3969,11 +3969,6 @@ musicaFundo.addEventListener("ended", function() {
           .querySelector(`.aba[onclick*="${idAba}"]`)
           .classList.add("ativa");
         document.getElementById(idAba).classList.add("ativa");
-
-        // Se mudar para "outras mensagens", carregar todas as mensagens
-        if (idAba === "outrasMensagens") {
-          carregarTodasMensagens();
-        }
       }
 
       // Carregar últimas 3 mensagens (sua + 2 outras)
